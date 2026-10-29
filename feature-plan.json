@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "current_feature": "core-skeleton",
+  "features": [
+    {
+      "id": "core-skeleton",
+      "title": "Core FastAPI/React skeleton with health check",
+      "status": "done",
+      "acceptance": [
+        "FastAPI server starts on port 8000",
+        "React dev server starts on port 3000",
+        "GET /health returns {\"status\": \"ok\"}",
+        "Frontend displays health status from backend"
+      ],
+      "implementation": [
+        "backend/app/main.py",
+        "backend/app/api/health.py",
+        "frontend/src/components/HealthStatus.tsx"
+      ],
+      "tests": [
+        "backend/tests/test_health.py"
+      ]
+    },
+    {
+      "id": "skill-management",
+      "title": "Skill CRUD API and UI",
+      "status": "planned",
+      "acceptance": [
+        "POST /skills creates a skill",
+        "GET /skills lists skills",
+        "GET /skills/{id} retrieves a skill",
+        "PUT /skills/{id} updates a skill",
+        "DELETE /skills/{id} deletes a skill",
+        "Frontend skill list with create/edit/delete"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "instinct-engine",
+      "title": "Instinct evaluation engine",
+      "status": "planned",
+      "acceptance": [
+        "POST /instincts/evaluate runs instinct evaluation",
+        "Instincts stored with conditions and actions",
+        "Frontend instinct builder"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "memory-store",
+      "title": "Memory persistence layer",
+      "status": "planned",
+      "acceptance": [
+        "POST /memory stores a memory entry",
+        "GET /memory retrieves memories with filters",
+        "Memory TTL and cleanup"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "security-audit",
+      "title": "Security audit logging",
+      "status": "planned",
+      "acceptance": [
+        "All API calls logged with user/context",
+        "Audit log query endpoint",
+        "Sensitive data redaction"
+      ],
+      "implementation": [],
+      "tests": []
+    },
+    {
+      "id": "research-assistant",
+      "title": "Research-first development assistant",
+      "status": "planned",
+      "acceptance": [
+        "POST /research/query submits research task",
+        "GET /research/{id} retrieves results",
+        "Source citation tracking"
+      ],
+      "implementation": [],
+      "tests": []
+    }
+  ]
+}
