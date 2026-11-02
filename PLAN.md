@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-core-skeleton
+skill-management
 
 ## Roadmap
 
@@ -24,7 +24,7 @@ Tests: `backend/tests/test_health.py`
 
 ### skill-management — Skill CRUD API and UI
 
-Status: planned
+Status: done
 
 Acceptance:
 - POST /skills creates a skill
@@ -33,6 +33,10 @@ Acceptance:
 - PUT /skills/{id} updates a skill
 - DELETE /skills/{id} deletes a skill
 - Frontend skill list with create/edit/delete
+
+Implementation: `backend/app/models/skill.py`, `backend/app/api/skills.py`, `backend/app/main.py`, `frontend/src/components/SkillList.tsx`
+
+Tests: `backend/tests/test_skills.py`
 
 ### instinct-engine — Instinct evaluation engine
 

@@ -2,11 +2,11 @@
 
 Work in progress; not a release-readiness or successful QA claim.
 
-Version: 1.0.0
+Version: 1.1.0
 
 ## Outstanding findings
 
-Repair this preserved checkpoint. Previous failure: Excluded/generated file would be published: frontend/dist/assets/index-Bes49kLR.css
+No completed independent review for this checkpoint.
 
 ## Next round
 

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "current_feature": "core-skeleton",
+  "current_feature": "skill-management",
   "features": [
     {
       "id": "core-skeleton",
@@ -24,7 +24,7 @@
     {
       "id": "skill-management",
       "title": "Skill CRUD API and UI",
-      "status": "planned",
+      "status": "done",
       "acceptance": [
         "POST /skills creates a skill",
         "GET /skills lists skills",
@@ -33,8 +33,15 @@
         "DELETE /skills/{id} deletes a skill",
         "Frontend skill list with create/edit/delete"
       ],
-      "implementation": [],
-      "tests": []
+      "implementation": [
+        "backend/app/models/skill.py",
+        "backend/app/api/skills.py",
+        "backend/app/main.py",
+        "frontend/src/components/SkillList.tsx"
+      ],
+      "tests": [
+        "backend/tests/test_skills.py"
+      ]
     },
     {
       "id": "instinct-engine",
