@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .config import settings
 from .api.health import router as health_router
+from .api.skills import router as skills_router
 
 app = FastAPI(
     title="Axiom Studio 145",
@@ -19,6 +20,7 @@ app.add_middleware(
 )
 
 app.include_router(health_router, prefix="/api")
+app.include_router(skills_router, prefix="/api")
 
 
 @app.get("/")

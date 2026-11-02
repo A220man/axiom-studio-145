@@ -1,16 +1,23 @@
 # Changelog
 
-## 1.0.0 — work-in-progress checkpoint
+## 1.1.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
 
-## 1.0.0 — work-in-progress checkpoint
+## [0.2.0] - 2026-11-02
 
-Partial code published for continued development. Known issues: STATUS.md.
+### Added
+- Skill CRUD API and UI (skill-management)
+  - Backend: Skill model with UUID, name, description, category, tags
+  - API endpoints: POST/GET/PUT/DELETE /api/skills
+  - In-memory skill storage
+  - Frontend: SkillList component with modal form for create/edit
+  - 8 backend tests for all CRUD operations
 
-## 1.0.0 — work-in-progress checkpoint
-
-Partial code published for continued development. Known issues: STATUS.md.
+### Verified
+- All 10 backend tests pass (2 health + 8 skills)
+- Frontend TypeScript compiles without errors
+- Frontend production build succeeds
 
 ## 1.0.0 — work-in-progress checkpoint
 

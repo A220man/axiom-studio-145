@@ -1,4 +1,5 @@
 import HealthStatus from './components/HealthStatus'
+import SkillList from './components/SkillList'
 import './App.css'
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       </header>
       <main>
         <HealthStatus />
+        <SkillList />
       </main>
     </div>
   )
