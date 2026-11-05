@@ -4,7 +4,7 @@ Each round completes one feature or repair. Future items are planned, not implem
 
 ## Current round
 
-skill-management
+instinct-engine
 
 ## Roadmap
 
@@ -40,12 +40,16 @@ Tests: `backend/tests/test_skills.py`
 
 ### instinct-engine — Instinct evaluation engine
 
-Status: planned
+Status: in_progress
 
 Acceptance:
 - POST /instincts/evaluate runs instinct evaluation
 - Instincts stored with conditions and actions
 - Frontend instinct builder
+
+Implementation: `backend/app/models/instinct.py`, `backend/app/api/instincts.py`, `backend/app/main.py`, `frontend/src/components/InstinctList.tsx`
+
+Tests: `backend/tests/test_instincts.py`
 
 ### memory-store — Memory persistence layer
 
