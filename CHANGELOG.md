@@ -1,8 +1,25 @@
 # Changelog
 
-## 1.2.0 — work-in-progress checkpoint
+## 1.3.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.2.0 - 2026-11-08
+
+### Added
+- Instinct evaluation engine (instinct-engine)
+  - Backend: Instinct model with conditions, actions, priority, enabled state
+  - API endpoints: POST/GET/PUT/DELETE /api/instincts, POST /api/instincts/evaluate
+  - In-memory instinct storage with priority-based ordering
+  - Condition operators: equals, not_equals, contains, greater_than, less_than, in, not_in
+  - Action types: log, notify, execute, store_memory, skip
+  - Frontend: InstinctList component with create/edit/delete forms and evaluation panel
+  - 14 backend tests for all CRUD operations and evaluation scenarios
+
+### Verified
+- All 24 backend tests pass (2 health + 8 skills + 14 instincts)
+- Frontend TypeScript compiles without errors
+- Frontend production build succeeds
 
 ## 1.1.0 — work-in-progress checkpoint
 

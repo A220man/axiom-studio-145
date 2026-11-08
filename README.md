@@ -46,10 +46,19 @@ axiom-studio-145/
 │   │   ├── __init__.py
 │   │   ├── main.py          # FastAPI application
 │   │   ├── config.py        # Configuration
+│   │   ├── models/
+│   │   │   ├── __init__.py
+│   │   │   ├── skill.py     # Skill model
+│   │   │   └── instinct.py  # Instinct model
 │   │   └── api/
-│   │       └── health.py    # Health check endpoint
+│   │       ├── __init__.py
+│   │       ├── health.py    # Health check endpoint
+│   │       ├── skills.py    # Skills CRUD API
+│   │       └── instincts.py # Instincts CRUD + evaluation API
 │   ├── tests/
-│   │   └── test_health.py
+│   │   ├── test_health.py
+│   │   ├── test_skills.py
+│   │   └── test_instincts.py
 │   ├── requirements.txt
 │   ├── pytest.ini
 │   └── Dockerfile
@@ -60,7 +69,9 @@ axiom-studio-145/
 │   │   ├── App.css
 │   │   ├── index.css
 │   │   └── components/
-│   │       └── HealthStatus.tsx
+│   │       ├── HealthStatus.tsx
+│   │       ├── SkillList.tsx
+│   │       └── InstinctList.tsx
 │   ├── package.json
 │   ├── tsconfig.json
 │   ├── vite.config.ts
@@ -77,7 +88,17 @@ axiom-studio-145/
 
 - `GET /` - Root endpoint with app info
 - `GET /api/health` - Health check returns `{"status": "ok"}`
-
+- `GET /api/skills` - List all skills
+- `POST /api/skills` - Create a skill
+- `GET /api/skills/{id}` - Get a skill by ID
+- `PUT /api/skills/{id}` - Update a skill
+- `DELETE /api/skills/{id}` - Delete a skill
+- `GET /api/instincts` - List all instincts
+- `POST /api/instincts` - Create an instinct
+- `GET /api/instincts/{id}` - Get an instinct by ID
+- `PUT /api/instincts/{id}` - Update an instinct
+- `DELETE /api/instincts/{id}` - Delete an instinct
+- `POST /api/instincts/evaluate` - Evaluate instincts against context data
 ## Testing
 
 ### Backend Tests
@@ -91,8 +112,8 @@ pytest -v
 ## Features
 
 - [x] Core FastAPI/React skeleton
-- [ ] Skill CRUD API and UI
-- [ ] Instinct evaluation engine
+- [x] Skill CRUD API and UI
+- [x] Instinct evaluation engine
 - [ ] Memory persistence layer
 - [ ] Security audit logging
 - [ ] Research-first development assistant

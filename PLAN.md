@@ -40,7 +40,7 @@ Tests: `backend/tests/test_skills.py`
 
 ### instinct-engine — Instinct evaluation engine
 
-Status: in_progress
+Status: done
 
 Acceptance:
 - POST /instincts/evaluate runs instinct evaluation
