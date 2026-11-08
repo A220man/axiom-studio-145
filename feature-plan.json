@@ -46,7 +46,7 @@
     {
       "id": "instinct-engine",
       "title": "Instinct evaluation engine",
-      "status": "in_progress",
+      "status": "done",
       "acceptance": [
         "POST /instincts/evaluate runs instinct evaluation",
         "Instincts stored with conditions and actions",
