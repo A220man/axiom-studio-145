@@ -116,8 +116,8 @@ async def delete_instinct(instinct_id: UUID) -> None:
 
 
 @router.post("/evaluate", response_model=EvaluationResponse)
-async def evaluate_instincts(context: EvaluationContext) -> EvaluationResponse:
-    results: List[EvaluationResult] = []
+    if not isinstance(data, dict):
+        raise HTTPException(status_code=400, detail="Evaluation data must be a JSON object")
     total_matched = 0
 
     sorted_instincts = sorted(_instincts.values(), key=lambda x: (-x.priority, x.created_at))
