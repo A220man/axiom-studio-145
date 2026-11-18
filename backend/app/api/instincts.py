@@ -116,8 +116,11 @@ async def delete_instinct(instinct_id: UUID) -> None:
 
 
 @router.post("/evaluate", response_model=EvaluationResponse)
+async def evaluate_instincts(context: EvaluationContext) -> EvaluationResponse:
+    data = context.data
     if not isinstance(data, dict):
         raise HTTPException(status_code=400, detail="Evaluation data must be a JSON object")
+    results: List[EvaluationResult] = []
     total_matched = 0
 
     sorted_instincts = sorted(_instincts.values(), key=lambda x: (-x.priority, x.created_at))
@@ -128,7 +131,7 @@ async def delete_instinct(instinct_id: UUID) -> None:
 
         matched = True
         for condition in instinct.conditions:
-            if not evaluate_condition(condition, context.data):
+            if not evaluate_condition(condition, data):
                 matched = False
                 break
 
@@ -136,7 +139,7 @@ async def delete_instinct(instinct_id: UUID) -> None:
         if matched:
             total_matched += 1
             for action in instinct.actions:
-                executed_actions.append(execute_action(action, context.data))
+                executed_actions.append(execute_action(action, data))
 
         results.append(EvaluationResult(
             instinct_id=instinct.id,

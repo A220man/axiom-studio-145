@@ -1,0 +1,17 @@
+{
+  "id": "memory-store",
+  "title": "Memory persistence layer",
+  "status": "in_progress",
+  "acceptance": [
+    "POST /memory stores a memory entry",
+    "GET /memory retrieves memories with filters",
+    "Memory TTL and cleanup"
+  ],
+  "implementation": [
+    "backend/app/models/memory.py",
+    "backend/app/api/memory.py"
+  ],
+  "tests": [
+    "backend/tests/test_memory.py"
+  ]
+}

@@ -5,6 +5,7 @@ from .config import settings
 from .api.health import router as health_router
 from .api.skills import router as skills_router
 from .api.instincts import router as instincts_router
+from .api.memory import router as memory_router
 
 app = FastAPI(
     title="Axiom Studio 145",
@@ -23,6 +24,7 @@ app.add_middleware(
 app.include_router(health_router, prefix="/api")
 app.include_router(skills_router, prefix="/api")
 app.include_router(instincts_router, prefix="/api")
+app.include_router(memory_router, prefix="/api")
 
 
 @app.get("/")

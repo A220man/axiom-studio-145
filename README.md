@@ -1,5 +1,7 @@
 # Axiom Studio 145 — Ryan Vo
 
+Current version: `1.5.0`.
+
 > Work in progress. This checkpoint may be incomplete or fail tests. See PLAN.md and STATUS.md before use.
 
 
@@ -114,7 +116,7 @@ pytest -v
 - [x] Core FastAPI/React skeleton
 - [x] Skill CRUD API and UI
 - [x] Instinct evaluation engine
-- [ ] Memory persistence layer
+- [~] Memory persistence layer
 - [ ] Security audit logging
 - [ ] Research-first development assistant
 
