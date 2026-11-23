@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.6.0 — work-in-progress checkpoint
+
+Partial code published for continued development. Known issues: STATUS.md.
+
+## 1.5.1 — deprecation fix
+
+### Fixed
+- Fixed `datetime.utcnow()` deprecation in backend/instincts API
+  - Changed `updated.updated_at = datetime.utcnow()` to `updated.updated_at = datetime.now(timezone.utc)` in `backend/app/api/instincts.py`
+  - Added `timezone` import from `datetime`
+  - All 14 instincts tests pass
+
 ## 1.5.0 — work-in-progress checkpoint
 
 Partial code published for continued development. Known issues: STATUS.md.
