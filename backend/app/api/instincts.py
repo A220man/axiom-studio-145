@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status
 from uuid import UUID
 from typing import List, Dict, Any
-from datetime import datetime
+from datetime import datetime, timezone
 
 from ..models.instinct import (
     Instinct,
@@ -102,7 +102,7 @@ async def update_instinct(instinct_id: UUID, instinct_data: InstinctUpdate) -> I
     update_data = instinct_data.model_dump(exclude_unset=True)
     if update_data:
         updated = instinct.model_copy(update=update_data)
-        updated.updated_at = datetime.utcnow()
+        updated.updated_at = datetime.now(timezone.utc)
         _instincts[instinct_id] = updated
         return updated
     return instinct
