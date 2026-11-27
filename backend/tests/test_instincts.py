@@ -368,3 +368,65 @@ async def test_evaluate_instincts_numeric_operators():
         data = response.json()
         assert data["total_matched"] == 0
         assert data["results"][0]["matched"] is False
+@pytest.mark.asyncio
+async def test_evaluate_instincts_starts_with():
+    """Test STARTS_WITH condition operator."""
+    async with AsyncClient(app=app, base_url="http://test") as client:
+        await client.post("/api/instincts", json={
+            "name": "Starts With Test",
+            "description": "Tests starts_with",
+            "conditions": [{"field": "prefix", "operator": "starts_with", "value": "hello"}],
+            "actions": [{"type": "log", "parameters": {"message": "started with hello"}}],
+            "priority": 10,
+            "enabled": True
+        })
+
+        # Test with string starting with "hello"
+        response = await client.post("/api/instincts/evaluate", json={
+            "data": {"prefix": "hello world"}
+        })
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total_matched"] == 1
+        assert data["results"][0]["matched"] is True
+
+        # Test with string not starting with "hello"
+        response = await client.post("/api/instincts/evaluate", json={
+            "data": {"prefix": "goodbye world"}
+        })
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total_matched"] == 0
+        assert data["results"][0]["matched"] is False
+
+
+@pytest.mark.asyncio
+async def test_evaluate_instincts_ends_with():
+    """Test ENDS_WITH condition operator."""
+    async with AsyncClient(app=app, base_url="http://test") as client:
+        await client.post("/api/instincts", json={
+            "name": "Ends With Test",
+            "description": "Tests ends_with",
+            "conditions": [{"field": "suffix", "operator": "ends_with", "value": "world"}],
+            "actions": [{"type": "log", "parameters": {"message": "ended with world"}}],
+            "priority": 10,
+            "enabled": True
+        })
+
+        # Test with string ending with "world"
+        response = await client.post("/api/instincts/evaluate", json={
+            "data": {"suffix": "hello world"}
+        })
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total_matched"] == 1
+        assert data["results"][0]["matched"] is True
+
+        # Test with string not ending with "world"
+        response = await client.post("/api/instincts/evaluate", json={
+            "data": {"suffix": "hello universe"}
+        })
+        assert response.status_code == 200
+        data = response.json()
+        assert data["total_matched"] == 0
+        assert data["results"][0]["matched"] is False

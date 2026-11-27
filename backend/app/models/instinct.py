@@ -9,6 +9,8 @@ class ConditionOperator(str, Enum):
     EQUALS = "equals"
     NOT_EQUALS = "not_equals"
     CONTAINS = "contains"
+    STARTS_WITH = "starts_with"
+    ENDS_WITH = "ends_with"
     GREATER_THAN = "greater_than"
     LESS_THAN = "less_than"
     IN = "in"

@@ -40,6 +40,14 @@ def evaluate_condition(condition: Condition, data: Dict[str, Any]) -> bool:
         elif isinstance(field_value, list):
             return value in field_value
         return False
+    elif op == ConditionOperator.STARTS_WITH:
+        if isinstance(field_value, str) and isinstance(value, str):
+            return field_value.startswith(value)
+        return False
+    elif op == ConditionOperator.ENDS_WITH:
+        if isinstance(field_value, str) and isinstance(value, str):
+            return field_value.endswith(value)
+        return False
     elif op == ConditionOperator.GREATER_THAN:
         try:
             return float(field_value) > float(value)
